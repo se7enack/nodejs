@@ -6,7 +6,7 @@ var gradeThree = 88;
 var gradeFour = 1;
 
 var finalGrade = (gradeOne+gradeTwo+gradeThree+gradeFour)/4;
-finalGrade=100
+//finalGrade=100
 if (finalGrade === 100) {
 	console.log("Perfect Score of "+finalGrade+"!!!")
 }
