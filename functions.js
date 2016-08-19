@@ -9,7 +9,6 @@ function sayBye (firstName, lastName) {
 	return "Bye "+firstName+ " "+ lastName+"!";
 }
 
-
 sayHello("Stephen", "Burke");
 
 var byeMessage = sayBye("Stephen", "Burke");

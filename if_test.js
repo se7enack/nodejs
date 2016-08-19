@@ -1,7 +1,6 @@
 #!/usr/local/bin/node
 
-var friend = 'Hogan';
-
+var friend = 'Zaphod';
 
 if (friend==='Michelle') {
 	console.log("Hi Babe!")

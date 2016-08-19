@@ -14,7 +14,6 @@ var person2 = {
 	adult: true
 };
 
-
 function sayHello (name) {
 	console.log("Hello "+name);
 }

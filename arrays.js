@@ -1,6 +1,5 @@
 #!/usr/local/bin/node
 
-
 var grades = [78,100,98,95,88];
 console.log(grades);
 
