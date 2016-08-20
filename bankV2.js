@@ -7,24 +7,39 @@ function createAccount (x,y,z) {
 	account.userName=x;
 	account.balance=y;
 	account.number=z;
-	accounts.push(account)
-	console.log(account)
+	accounts.push(account);
+	return account;
 }
 
 function getAccount (userName) {
+	var matched
 	accounts.forEach(function (account) {
 		if (account.userName === userName) {
-			console.log(account);
+			matched = account;
 		}
-	}); 
+	});
+	//console.log(matched);
+	return matched;
 }
 
-createAccount('Bryson',1999234.01,0);
-createAccount('Logan',2300022,1);
-createAccount('Michelle',14432.88,2);
-createAccount('Stephen',.01,3);
-console.log('\n')
-getAccount("Michelle");
+function depositFunds (account,amount) {
+	account.balance=account.balance+amount;
+	return account.balance;
+}
+
+function withdrawFunds (account,amount) {
+	account.balance=account.balance-amount;
+	return account.balance;
+}
+
+var bburke = createAccount('Bryson',1999234.01,0);
+var lburke = createAccount('Logan',2300022,1);
+var mburke = createAccount('Michelle',14432.88,2);
+var sburke = createAccount('Stephen',.01,3);
+
+console.log('\n');
+console.log(getAccount("Michelle"));
+console.log('\n');
 
 //console.log(accounts[1])
 //console.log(accounts)
