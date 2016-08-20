@@ -29,10 +29,23 @@ function getBalance (account) {
 	return account.balance;
 }
 
-//Start
-
 var burkeSte = createAccount({
 	userName: 'Stephen',
+	balance: 0
+});
+
+var burkeMic = createAccount({
+	userName: 'Michelle',
+	balance: 0
+});
+
+var burkeLog = createAccount({
+	userName: 'Logan',
+	balance: 0
+});
+
+var burkeBry = createAccount({
+	userName: 'Bryson',
 	balance: 0
 });
 
@@ -44,6 +57,11 @@ withdrawFunds(burkeSte, 4369);
 console.log(getBalance(burkeSte));
 
 console.log('\n');
-console.log(getAccount('Stephen'));
+console.log(accounts);
+
+
+console.log('\n');
+var existingBrysonAccount = getAccount('Bryson');
+console.log(existingBrysonAccount);
 
 
