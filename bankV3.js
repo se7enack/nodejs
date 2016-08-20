@@ -52,16 +52,12 @@ var burkeBry = createAccount({
 depositFunds(burkeSte, 6969);
 console.log(getBalance(burkeSte));
 
-
 withdrawFunds(burkeSte, 4369);
 console.log(getBalance(burkeSte));
 
 console.log('\n');
 console.log(accounts);
 
-
 console.log('\n');
 var existingBrysonAccount = getAccount('Bryson');
 console.log(existingBrysonAccount);
-
-
