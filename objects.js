@@ -26,4 +26,4 @@ sayHello(person2.firstName);
 
 sayBye(person1);
 
-console.log(person1, person2);	
+console.log(person1, person2);

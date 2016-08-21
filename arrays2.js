@@ -18,5 +18,3 @@ function showMe (sumGrade) {
 }
 
 showMe(sumGrade);
-
-

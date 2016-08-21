@@ -12,4 +12,4 @@ function sayBye (firstName, lastName) {
 sayHello("Stephen", "Burke");
 
 var byeMessage = sayBye("Stephen", "Burke");
-console.log(byeMessage)
+console.log(byeMessage);

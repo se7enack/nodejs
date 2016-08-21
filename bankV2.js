@@ -41,5 +41,5 @@ console.log('\n');
 console.log(getAccount("Michelle"));
 console.log('\n');
 
-//console.log(accounts[1])
-//console.log(accounts)
+//console.log(accounts[1]);
+//console.log(accounts);
