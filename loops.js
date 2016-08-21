@@ -8,8 +8,6 @@ while (x<=10) {
 
 console.log('\r');
 
-x = 10;
-while (x>=1) {
+for (x=10; x>=1; x--) {
 	console.log('Count is '+x);
-	x--;
 }
