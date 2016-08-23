@@ -2,6 +2,9 @@
 
 console.log('starting password manager...');
 
+var argv = require('yargs').argv;
+var command = argv._[0];
+
 var storage = require('node-persist');
 storage.initSync();
 
@@ -23,7 +26,7 @@ function getAccount (accountName) {
 	var matchedAccount;
 
 	accounts.forEach(function (account){
-		if (account.name === accountName) {
+		if (account.site === accountName) {
 			matchedAccount = account;
 		}
 	});
@@ -31,13 +34,36 @@ function getAccount (accountName) {
 	return matchedAccount;
 }
 
-/*
-createAccount({
-	name: 'LinkedIn',
-	username: 'myEmail@myemail.com',
-	password: 'n7j%tT99$ffs+1'
-});
-*/
+if (command === 'get') {
+	if (typeof argv.site === 'undefined') {
+		console.log('switch \'--site\' is missing. ');
+	} else {
+		accountName = argv.site;
+		var results = getAccount(argv.site);
+		if (typeof results !== 'undefined') {
+			console.log(results);
+		}
+	}
 
-var linkedIn =getAccount('LinkedIn');
-console.log(linkedIn);
+} else if (command === 'create') {
+	if (typeof argv.site === 'undefined' || typeof argv.user === 'undefined' || typeof argv.password === 'undefined') {
+		console.log('The \'create\' command requires three switches (--site, --user, and --password) at least one was missing.');
+	} else {
+		createAccount({
+			site: argv.site,
+			username: argv.user,
+			password: argv.password 
+		});
+		accountName = argv.site;
+		var results = getAccount(argv.site);
+		console.log(results);
+	}
+} else if (typeof command === 'undefined') {
+	console.log('\nExample Usage:');
+	console.log('./app.js get --site hotmail\r');
+	console.log('./app.js create --site hotmail --user myusername --password password123\r\n')
+}
+
+
+
+
