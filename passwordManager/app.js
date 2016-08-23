@@ -1,8 +1,24 @@
 #!/usr/local/bin/node
 
-console.log('starting password manager...');
+console.log('Password Manager...');
 
-var argv = require('yargs').argv;
+var argv = require('yargs')
+	.command('get', 'gets the results for a site', function (yargs) {
+		yargs.options({
+			site: {
+				demand: true
+			}
+		})
+	})
+	.command('create', 'creates an entry for a site', function (yargs) {
+		yargs.options({
+			site: {
+				demand: true
+			}
+		})
+	})	
+	.argv;
+
 var command = argv._[0];
 
 var storage = require('node-persist');
