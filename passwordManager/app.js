@@ -13,7 +13,19 @@ var argv = require('yargs')
 	.command('create', 'creates an entry for a site', function (yargs) {
 		yargs.options({
 			site: {
-				demand: true
+				demand: true,
+				alias: 's',
+				description: 'The website'
+			},
+			user: {
+				demand: true,
+				alias: 'u',
+				description: 'The username'
+			},
+			password: {
+				demand: true,
+				alias: 'p',
+				description: 'The password'
 			}
 		})
 	})	
