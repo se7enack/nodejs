@@ -1,6 +1,6 @@
 #!/usr/local/bin/node
 
-console.log('Password Manager...');
+console.log('Password Manager');
 
 var argv = require('yargs')
 	.command('get', 'gets the results for a site', function (yargs) {
@@ -15,17 +15,20 @@ var argv = require('yargs')
 			site: {
 				demand: true,
 				alias: 's',
-				description: 'The website'
+				description: 'The website',
+				type: 'string'
 			},
 			user: {
 				demand: true,
 				alias: 'u',
-				description: 'The username'
+				description: 'The username',
+				type: 'string'
 			},
 			password: {
 				demand: true,
 				alias: 'p',
-				description: 'The password'
+				description: 'The password',
+				type: 'string'
 			}
 		})
 	})	
