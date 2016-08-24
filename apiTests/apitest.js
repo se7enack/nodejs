@@ -2,19 +2,20 @@
 
 const querystring = require('querystring');
 const https = require('https');
-
-var postData = querystring.stringify({
-  'msg' : 'Hello World!'
-});
+//var postData = querystring.stringify({
+//  'user_url' : 'se7enack'
+//});
+thePath='/users/se7enack'
 
 var options = {
-  hostname: 'www.google.com',
+  hostname: 'api.github.com',
   port: 443,
-  path: '',
+  path: thePath,
   method: 'GET',
   headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'User-Agent': 'se7enack'
   }
 };
 
@@ -35,5 +36,7 @@ req.on('error', (e) => {
 });
 
 // write data to request body
-req.write(postData);
+//req.write(postData);
+
 req.end();
+
