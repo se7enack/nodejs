@@ -1,6 +1,26 @@
 #!/usr/local/bin/node
 
+var crypto = require('crypto'),
+	lodash = require('lodash'),
+	definition, options,
+	cryptoKey = 'Se7enACK',
+	algorithm = 'aes-256-ctr';
+
 console.log('Password Manager');
+
+function encryptString(plainText) {
+	var cipher = crypto.createCipher(algorithm, cryptoKey),
+		crypted = cipher.update(plainText, 'utf8', 'hex');
+	crypted += cipher.final('hex');
+	return crypted;
+}
+
+function decryptString(encryptedText) {
+	var decipher = crypto.createDecipher(algorithm, cryptoKey),
+		dec = decipher.update(encryptedText, 'hex', 'utf8');
+	dec += decipher.final('utf8');
+	return dec;
+}
 
 var argv = require('yargs')
 	.command('get', 'gets the results for a site', function (yargs) {
@@ -65,12 +85,14 @@ function getAccount (accountName) {
 	return matchedAccount;
 }
 
+
 if (command === 'get') {
 	if (typeof argv.site === 'undefined') {
 		console.log('switch \'--site\' is missing. ');
 	} else {
 		accountName = argv.site;
 		var results = getAccount(argv.site);
+		results.password = decryptString(results.password);
 		if (typeof results !== 'undefined') {
 			console.log(results);
 		}
@@ -80,6 +102,7 @@ if (command === 'get') {
 	if (typeof argv.site === 'undefined' || typeof argv.user === 'undefined' || typeof argv.password === 'undefined') {
 		console.log('The \'create\' command requires three switches (--site, --user, and --password) at least one was missing.');
 	} else {
+		argv.password = encryptString(argv.password);
 		createAccount({
 			site: argv.site,
 			username: argv.user,
