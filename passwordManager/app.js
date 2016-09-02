@@ -121,7 +121,18 @@ if (command === 'get') {
 		console.log(results);
 	}
 } else if (typeof command === 'undefined') {
-	console.log('\nExample Usage:');
-	console.log('./app.js get --site hotmail\r');
-	console.log('./app.js create --site hotmail --user myusername --password password123\r\n')
+	console.log('\nExample Usage:\r');
+	console.log('\n');
+	console.log('	./app.js create --site hotmail --user myUsername --password password123\r');
+	console.log('\n');
+	console.log('	./app.js get --site hotmail\r');
+	console.log('\n');
+	console.log('Optionally you can change the default crypto key (much more secure):\r');
+	console.log('\n');
+	console.log('	./app.js create --site hotmail --user myUsername --password password123 --key yourCustomCryptoKey\r');
+	console.log('\n');
+	console.log('	./app.js get --site hotmail --key yourCustomCryptoKey\r');
+	console.log('\n');
+
+
 }
