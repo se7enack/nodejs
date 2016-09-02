@@ -85,7 +85,6 @@ function getAccount (accountName) {
 	return matchedAccount;
 }
 
-
 if (command === 'get') {
 	if (typeof argv.site === 'undefined') {
 		console.log('switch \'--site\' is missing. ');
@@ -117,7 +116,3 @@ if (command === 'get') {
 	console.log('./app.js get --site hotmail\r');
 	console.log('./app.js create --site hotmail --user myusername --password password123\r\n')
 }
-
-
-
-
