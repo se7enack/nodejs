@@ -3,7 +3,6 @@
 var crypto = require('crypto'),
 	lodash = require('lodash'),
 	definition, options,
-	cryptoKey = 'Se7enACK',
 	algorithm = 'aes-256-ctr';
 
 console.log('Password Manager');
@@ -86,6 +85,11 @@ function getAccount (accountName) {
 }
 
 if (command === 'get') {
+	if (typeof argv.key === 'undefined') {
+		cryptoKey = 'Se7enACK';
+	} else {
+		cryptoKey = argv.key;
+	}
 	if (typeof argv.site === 'undefined') {
 		console.log('switch \'--site\' is missing. ');
 	} else {
@@ -98,6 +102,11 @@ if (command === 'get') {
 	}
 
 } else if (command === 'create') {
+	if (typeof argv.key === 'undefined') {
+		cryptoKey = 'Se7enACK';
+	} else {
+		cryptoKey = argv.key;
+	}
 	if (typeof argv.site === 'undefined' || typeof argv.user === 'undefined' || typeof argv.password === 'undefined') {
 		console.log('The \'create\' command requires three switches (--site, --user, and --password) at least one was missing.');
 	} else {
